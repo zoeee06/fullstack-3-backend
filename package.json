@@ -4,14 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts",
     "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "createInitialPermissions": "ts-node src/scripts/createInitialPermissions.ts",
+    "createAdminRole": "ts-node src/scripts/createAdminRole.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@prisma/client": "^6.10.1",
-    "express": "^5.1.0"
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
