@@ -12,6 +12,20 @@ export const listUsers = async (request: Request, response: Response) => {
   response.json(users);
 };
 
+export const getUser = async (request: Request, response: Response) => {
+  const { id } = request.params;
+  const user = await prisma.user.findUnique({
+    where: {
+      id: Number(id),
+    },
+  });
+
+  if (!user) {
+    response.status(404).send("User not found");
+  }
+  response.json(user);
+};
+
 export const createUser = async (request: Request, response: Response) => {
   const { name, email, password, roleId } = request.body;
   await prisma.user.create({
