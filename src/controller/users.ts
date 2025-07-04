@@ -46,3 +46,16 @@ export const createUser = async (request: Request, response: Response) => {
   });
   response.send("User created successfully");
 };
+
+// export const deleteUser = async (request: Request, response: Response) => {
+//   const { id } = request.params;
+//   await prisma.user.delete({
+//     where: {
+//       id: Number(id),
+//     },
+//     include:{
+//       password: true
+//     }
+//   });
+//   response.send("User deleted successfully");
+// };
