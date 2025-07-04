@@ -9,7 +9,6 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 app.use(authentication);
-
 // list all roles & their permissions
 app.use(rolesRouter);
 app.use(usersRouter);

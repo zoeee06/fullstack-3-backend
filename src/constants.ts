@@ -1,5 +1,5 @@
 export const PERMISSIONS = {
-  UESERS: {
+  USERS: {
     READ: "users:read",
     EDIT: "users:edit",
   },

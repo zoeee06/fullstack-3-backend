@@ -21,7 +21,9 @@ export const authentication = (
   }
   const token = headerToken.split(" ")[1];
   try {
-    jwt.verify(token, CONFIG.JWT_SECRET);
+    const decodedPayload: any = jwt.verify(token, CONFIG.JWT_SECRET);
+    (request as any).userId = decodedPayload.userId;
+    (request as any).roleId = decodedPayload.roleId;
     next();
   } catch (error) {
     reponse.status(401).send("Unauthorized");
