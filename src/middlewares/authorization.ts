@@ -4,7 +4,6 @@ import prisma from "../prismaClient";
 export const authorization = (targetPermissions: string[]) => {
   return async (request: Request, response: Response, next: NextFunction) => {
     const userId = (request as any).userId;
-    console.log("userId", userId);
     const user = await prisma.user.findUnique({
       where: {
         id: userId,
@@ -17,7 +16,6 @@ export const authorization = (targetPermissions: string[]) => {
         },
       },
     });
-    console.log("user", user?.role.permissions);
 
     const userPermissions = user?.role.permissions.map(
       (permission) => permission.name
@@ -32,7 +30,6 @@ export const authorization = (targetPermissions: string[]) => {
       return;
     }
 
-    console.log("hasValidPermission", hasValidPermission);
     next();
   };
 };
