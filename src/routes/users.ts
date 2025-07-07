@@ -4,6 +4,7 @@ import {
   createUser,
   getUser,
   deleteUser,
+  updateUser,
 } from "../controller/users";
 import { authorization } from "../middlewares/authorization";
 import { PERMISSIONS } from "../constants";
@@ -18,4 +19,5 @@ router.delete(
   authorization([PERMISSIONS.USERS.EDIT]),
   deleteUser
 );
+router.put("/users/:id", authorization([PERMISSIONS.USERS.EDIT]), updateUser);
 export default router;

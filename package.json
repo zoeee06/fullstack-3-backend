@@ -9,7 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "createInitialPermissions": "ts-node src/scripts/createInitialPermissions.ts",
     "createAdminRole": "ts-node src/scripts/createAdminRole.ts",
-    "prisma:migrate": "prisma migrate dev"
+    "prisma:migrate": "prisma migrate dev",
+    "populate:products": "ts-node src/scripts/populateProducts.ts",
+    "populate:orders": "ts-node src/scripts/populateOrders.ts"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +24,7 @@
     "nodemon": "^3.1.10"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
